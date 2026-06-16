@@ -7,7 +7,7 @@
 #  License server pre-configured — just activate your license key.
 #
 #  Usage:
-#    curl -sSL https://bit.ly/YOUR_LINK | sudo bash
+#    curl -sSL https://github.com/rjdtech-sys/rjdpisowifi-installer/blob/8ef34d69b16b8433e0a7672542b869b028687cb4/install.sh | sudo bash
 #
 #  Hardware Support:
 #    - Raspberry Pi (all models)
