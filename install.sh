@@ -139,7 +139,7 @@ if [ "$EUID" -ne 0 ]; then
     echo -e "${RED}❌ Please run as root (use sudo)${NC}"
     echo ""
     echo -e "  ${YELLOW}Correct command:${NC}"
-    echo -e "  ${CYAN}curl -sSL https://github.com/rjdtech-sys/rjdpisowifi-build/blob/main/install.sh | sudo bash${NC}"
+    echo -e "  ${CYAN}curl -sSL https://github.com/rjdtech-sys/rjdpisowifi-installer/raw/main/install.sh | sudo bash${NC}"
     echo ""
     exit 1
 fi
