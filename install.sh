@@ -321,13 +321,21 @@ echo -e "  ${YELLOW}Cleaning previous build...${NC}"
 rm -rf node_modules package-lock.json dist 2>/dev/null || true
 
 echo -e "  ${YELLOW}Installing Node.js dependencies...${NC}"
-echo -e "  ${CYAN}(This may take 3-10 minutes on ARM devices)${NC}"
-npm install --unsafe-perm --no-audit --no-fund --build-from-source 2>&1 | tail -5
+npm install --unsafe-perm --no-audit --no-fund --build-from-source 2>&1
 
-echo -e "  ${YELLOW}Building frontend...${NC}"
-npm run build 2>&1 | tail -3
+# ✅ CRITICAL: Verify node_modules installed properly
+if [ ! -d "node_modules" ] || [ ! -f "node_modules/dotenv/package.json" ]; then
+    echo -e "  ${RED}npm install failed. Retrying without build-from-source...${NC}"
+    rm -rf node_modules package-lock.json
+    npm install --no-audit --no-fund 2>&1
+    
+    if [ ! -d "node_modules" ] || [ ! -f "node_modules/dotenv/package.json" ]; then
+        echo -e "  ${RED}❌ npm install failed twice. Please check internet connection.${NC}"
+        exit 1
+    fi
+fi
 
-print_success "Application built successfully"
+print_success "Node.js dependencies installed"
 
 #-------------------------------------------------------------------------
 #  STEP 7/8 — Setting Up PM2 Persistence
