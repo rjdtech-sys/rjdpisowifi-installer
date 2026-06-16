@@ -40,7 +40,7 @@ SYSTEM_VERSION="1.0.0"
 INSTALL_DIR="/opt/rjd-pisowifi"
 
 # GitHub repo (fork this to your own account for full control)
-REPO_URL="https://github.com/syntaxcasino/RJD-PISOWIFI-Management-System.git"
+REPO_URL="https://github.com/rjdtech-sys/RJ-PISOWIFI-Management-System.git"
 
 #=============================================================================
 #  COLOR CODES
